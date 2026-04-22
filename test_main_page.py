@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from .pages.main_page import MainPage
 from .pages.locators import MainPageLocators
+from .pages.locators import LoginPageLocators
 
 link = "http://selenium1py.pythonanywhere.com/"
 
@@ -22,3 +23,4 @@ def test_guest_should_see_login_link(browser):
     page.should_be_login_link()
 
 # pytest -v --tb=line --language=en test_main_page.py
+# pytest -v --tb=line --language=en login_page.py

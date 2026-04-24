@@ -1,6 +1,4 @@
-from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
-from .pages.locators import MainPageLocators
 
 # Ссылка на страницу логина
 link = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"

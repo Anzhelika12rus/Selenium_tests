@@ -9,6 +9,14 @@ class ProductPage(BasePage):
         self.product_name_in_message()
         self.product_price_in_message()
 
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is still present, but should have disappeared"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
     # def should_be_button_add_to_basket(self):
     #     # проверка наличия кнопки добавления товара в корзину
     #     assert self.is_element_present(*ProductPageLocators.BUTTON_ADD_BASKET), \

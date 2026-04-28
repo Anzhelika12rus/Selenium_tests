@@ -26,10 +26,10 @@ BASE_LINK = f"{BASE_URL}/catalogue/coders-at-work_207/"
 @pytest.mark.need_review
 def test_guest_can_add_product_to_basket(browser, link):
     page = ProductPage(browser,
-                       link)  # инициализируем Page Object, передаем в конструктор экземпляр драйвера и url адрес
-    page.open()  # открываем страницу
-    page.click_button_add_to_basket()  # кликаем кнопку "add_to_basket"
-    page.solve_quiz_and_get_code()  # запускаем alert
+                       link)
+    page.open()
+    page.click_button_add_to_basket()
+    page.solve_quiz_and_get_code()
     page.should_be_success_message()
 
 
@@ -76,7 +76,7 @@ class TestUserAddToBasketFromProductPage:
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
         link = f"{BASE_URL}/en-gb/accounts/login/"
-        self.page = LoginPage(browser, link)  # создаёт объект Page Object для этой страницы
+        self.page = LoginPage(browser, link)
         self.page.open()
         email = str(time.time()) + "@fakemail.org"
         password = str(time.time())
@@ -94,8 +94,3 @@ class TestUserAddToBasketFromProductPage:
         page.open()
         page.click_button_add_to_basket()
         page.should_be_success_message()
-
-# pytest -m register test_product_page.py
-# pytest -v --tb=line --language=en test_product_page.py
-#  pytest -s test_product_page.py
-# pytest -v --tb=line --language=en -m need_review

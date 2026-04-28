@@ -3,14 +3,9 @@ import pytest
 from .pages.main_page import MainPage
 from .pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
-from .pages.locators import MainPageLocators
 
 link = "http://selenium1py.pythonanywhere.com/"
 
-
-def go_to_login_page(browser):
-    login_link = browser.find_element(*MainPageLocators.LOGIN_LINK)
-    login_link.click()
 
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     page = BasketPage(browser, link)

@@ -40,5 +40,6 @@ def test_register_form_is_present(browser):
     page.should_be_register_form()
 
 
+
 # команда для запуска тестов:
 # pytest test_login_page.py -v --tb=line --language=en

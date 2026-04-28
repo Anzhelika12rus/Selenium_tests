@@ -20,3 +20,5 @@ class MainPage(BasePage):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is presented, but should not be"
 
+
+

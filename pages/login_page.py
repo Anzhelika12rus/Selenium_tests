@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
+import time
 
 
 class LoginPage(BasePage):
@@ -42,3 +43,13 @@ class LoginPage(BasePage):
         # проверяем подтверждение пароля
         assert self.is_element_present(*LoginPageLocators.REGISTRATION_PASSWORD2), \
             "Registration password2 is not presented"
+
+    def register_new_user(self, email, password):
+        email_field = self.browser.find_element(*LoginPageLocators.REGISTRATION_USERNAME)
+        email_field.send_keys(email)
+        password_field_1 = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD1)
+        password_field_1.send_keys(password)
+        password_field_2 = self.browser.find_element(*LoginPageLocators.REGISTRATION_PASSWORD2)
+        password_field_2.send_keys(password)
+        button_register = self.browser.find_element(*LoginPageLocators.BUTTON_REGISTER)
+        button_register.click()

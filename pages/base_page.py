@@ -66,6 +66,11 @@ class BasePage():
         link = self.browser.find_element(*BasePageLocators.BUTTON_VIEW_BACKET)
         link.click()
 
+    def should_be_authorized_user(self):
+        WebDriverWait(self.browser, 5).until(
+            EC.presence_of_element_located(BasePageLocators.USER_ICON)
+        ), "User icon is not presented, probably unauthorised user"
+
 
 
 
